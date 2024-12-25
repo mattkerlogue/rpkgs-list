@@ -1,6 +1,6 @@
 {
-  "name": "rpkg-list",
-  "displayName": "R package list",
+  "name": "rpkgs-list",
+  "displayName": "R Package List",
   "description": "Listing of installed R packages",
   "version": "0.0.1",
   "publisher": "Matt Kerlogue",
@@ -21,14 +21,41 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "rpkg-list",
-          "title": "R Package List"
+          "id": "rpkgs_list_container",
+          "title": "R Packages",
+          "icon": "media/hexgrp.svg"
         }
       ]
     },
+    "views" : {
+      "rpkgs_list_container": [
+				{
+					"id": "rpkgs_list_view",
+					"name": "Installed",
+					"icon": "media/hexgrp.svg",
+					"contextualTitle": "Installed R Packages"
+				}
+      ]
+    },
     "commands": [
-      
-    ]
+      {
+        "command": "rpkgs_list.list",
+        "title": "List packages"
+      },
+      {
+        "command": "rpkgs_list.refresh",
+        "title": "Refresh R package list"
+      }
+    ],
+    "menus": {
+		  "view/title": [
+			  {
+				  "command": "rpkgs_list.refresh",
+				  "when": "view == rpkgs_list_view",
+				  "group": "navigation@0"
+			  }
+		  ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -39,14 +66,14 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.96.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
-    "eslint": "^9.16.0",
-    "typescript": "^5.7.2",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2"
   }
 }
