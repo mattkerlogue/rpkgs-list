@@ -1,5 +1,9 @@
 # R Package Listing for Visual Studio Code
 
+> [!CAUTION]
+> This repo is archived. As of v2026.05 of Positron now has an in-built
+> packages pane.
+
 Placeholder for a VS Code extension listing R packages installed in your R
 package library/libraries.
 
